@@ -1,0 +1,13 @@
+Save this into json file called local.settings.json
+
+Add your settings for local dev, the json file will never be checked in
+
+{
+  "IsEncrypted": false,
+  "Values": {
+    "AzureWebJobsStorage": "UseDevelopmentStorage=true",
+    "FUNCTIONS_WORKER_RUNTIME": "dotnet",
+    "AzureWebJobsServiceBus": "",
+    "ServiceBusConnectionString": ""
+  }
+}
