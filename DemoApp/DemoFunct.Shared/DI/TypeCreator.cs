@@ -8,16 +8,9 @@ namespace DemoFunct.Shared.DI
 {
     public class TypeCreator : ITypeCreator
     {
-        private readonly ContainerBuilder _container;
-
-        public TypeCreator(ContainerBuilder container)
-        {
-            _container = container;
-        }
-
         public object Create(Type typeToCreate)
         {
-            var newBuilder = new ContainerBuilder();
+            var newBuilder = Container.Builder();
             newBuilder.RegisterType(typeToCreate);
             var container = newBuilder.Build();
             

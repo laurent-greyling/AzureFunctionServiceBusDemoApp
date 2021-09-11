@@ -9,43 +9,7 @@ namespace DemoFunct.Shared.DI
     {
         public static IContainer Initialize() 
         {
-            var container = new ContainerBuilder();
-
-            container.Register(c => new TypeCreator(container))
-               .As<ITypeCreator>()
-               .SingleInstance();
-
-            container.RegisterType<ServiceBusInitializer>()
-                .As<IRunStartup>()
-                .InstancePerDependency();
-
-            container.RegisterType<MessageHandlerRegistryInitializer>()
-                .As<IRunStartup>()
-                .InstancePerDependency();
-
-            container.RegisterType<MessageWrapper>()
-                .As<IMessage>()
-                .InstancePerLifetimeScope();
-
-            container.RegisterType<MessageHandlerRegistry>()
-                .As<IMessageHandlerRegistry>()
-                .InstancePerLifetimeScope();
-
-            container.RegisterType<MessageHandler>()
-                .As<IMessageHandler>()
-                .AsSelf();
-
-            //container.RegisterType<DataCalcMessageHandler>()
-            //    .As<IMessageHandler>()
-            //    .AsSelf();
-
-            //container.RegisterType<DataExtractMessageHandler>()
-            //    .As<IMessageHandler>()
-            //    .AsSelf();
-
-            //container.RegisterType<DataTableMessageHandler>()
-            //    .As<IMessageHandler>()
-            //    .AsSelf();
+            var container = Container.Builder();
 
             return container.Build();
         }

@@ -1,4 +1,5 @@
-﻿using DemoFunct.Shared.Messages;
+﻿using DemoFunct.Shared.DI;
+using DemoFunct.Shared.Messages;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -8,9 +9,18 @@ namespace DemoFunct.Shared.MessageHandlers
 {
     public class FetchDataMessageHandler : IMessageHandler
     {
+        private readonly ITypeCreator _creator;
+
+        public FetchDataMessageHandler(ITypeCreator creator)
+        {
+            _creator = creator;
+        }
+
         public async Task HandleAsync(IMessage message)
         {
-            var x = "FetchData";
+            var d = message;
+            var x = _creator;
+            var y = "FetchData";
         }
     }
 }

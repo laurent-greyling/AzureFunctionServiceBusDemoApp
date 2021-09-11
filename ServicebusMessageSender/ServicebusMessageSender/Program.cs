@@ -10,7 +10,7 @@ namespace ServicebusMessageSender
     {
         static async Task Main(string[] args)
         {
-            var connectionString = "";
+            var connectionString = "Endpoint=sb://qrmplaytest.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=Rf1+69KGCE/Jb+HRlLXNPy4baVzdyDIQ0MyEgXS/5s8=";
             var queueName = "mgm";
 
             var sender = new MessageSender(connectionString, queueName);
@@ -21,7 +21,10 @@ namespace ServicebusMessageSender
                 Body = Encoding.UTF8.GetBytes("Hello world!"),                
             };
 
-            msg.UserProperties.Add("MessageType", "FetchData");
+            //msg.UserProperties.Add("MessageType", "DataCalc");
+            //msg.UserProperties.Add("MessageType", "DataExtract");
+            msg.UserProperties.Add("MessageType", "DataTable");
+            //msg.UserProperties.Add("MessageType", "FetchData");
 
             await sender.SendAsync(msg);
         }
