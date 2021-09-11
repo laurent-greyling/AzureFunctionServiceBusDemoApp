@@ -10,7 +10,7 @@ namespace ServicebusMessageSender
     {
         static async Task Main(string[] args)
         {
-            var connectionString = "Endpoint=sb://qrmplaytest.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=Rf1+69KGCE/Jb+HRlLXNPy4baVzdyDIQ0MyEgXS/5s8=";
+            var connectionString = "";
             var queueName = "mgm";
 
             var sender = new MessageSender(connectionString, queueName);
